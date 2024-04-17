@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'game_library',
     'login_controls',
+    'random_game_selector',
 ]
 
 MIDDLEWARE = [
