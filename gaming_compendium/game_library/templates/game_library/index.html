@@ -1,0 +1,41 @@
+{% extends "game_library/base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% comment %} Sidebar {% endcomment %}
+
+
+
+{% comment %} Game List Display {% endcomment %}
+<div class="accordion" id="Game_List">
+    {% for game in game_list %}
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+            {{game.title}} | Rating: {{game.rating}}
+            </button>
+        </h2>
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+            <div class="accordion-body">
+                <ul>
+                    <li>
+                        <strong>Description:</strong> {{game.description}}
+                    </li>
+                    <li>
+                        <strong>Genre:</strong> {{game.genre}}
+                    </li>
+                    <li>
+                        <strong>Developer:</strong> {{game.developer}}
+                    </li>
+                    <li>
+                        <strong>Time to Beat</strong> {{game.time_to_beat}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
