@@ -10,63 +10,41 @@
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <span class="fs-5 d-none d-sm-inline">Filters</span>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link align-middle px-0">
-                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
-                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
-                    </li>
-                    <li>
-                        <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
-                        <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
-                    </li>
+                    <form method="GET" action=".">
+                        <hr/>
+                        <div class="form-group col-md-4">
+                            <label for="genre">Genre:</label>
+                            <select id="genre" class="form-control" name="genre" style="width: 150px;">
+                              <option selected>Choose...</option>
+                              {% for genre in genre_list %}
+                              <option value="{{ genre }}">{{ genre }}</option>
+                              {% endfor %}
+                            </select>
+                        </div>
+                        <hr/>
+                        <div class="form-group col-md-4">
+                            <label for="developer">Developer:</label>
+                            <select id="developer" class="form-control" name="developer" style="width: 150px;">
+                              <option selected>Choose...</option>
+                              {% for developer in developer_list %}
+                              <option value="{{ developer }}">{{ developer }}</option>
+                              {% endfor %}
+                            </select>
+                        </div>
+                        <hr/>
+                        <div class="form-group col-md-4">
+                            <label for="platform">Platform:</label>
+                            <select id="platform" class="form-control" name="platform" style="width: 150px;">
+                              <option selected>Choose...</option>
+                              {% for platform in platform_list %}
+                              <option value="{{ platform }}">{{ platform }}</option>
+                              {% endfor %}
+                            </select>
+                        </div>
+                        <hr/>
+                        <button type="submit" class="btn btn-primary">Apply Filters</button>
+                    </form>
                 </ul>
-                <hr>
             </div>
         </div>
         <div class="col py-3">
@@ -82,21 +60,11 @@
                     <div id="panelsStayOpen-collapse{{ forloop.counter }}" class="accordion-collapse collapse">
                         <div class="accordion-body">
                             <ul>
-                                <li>
-                                    <strong>Description:</strong> {{game.description}}
-                                </li>
-                                <li>
-                                    <strong>Genre:</strong> {{game.genre.all|join:", " }}
-                                </li>
-                                <li>
-                                    <strong>Developer:</strong> {{game.developer}}
-                                </li>
-                                <li>
-                                    <strong>Time to Beat</strong> {{game.time_to_beat}}
-                                </li>
-                                <li>
-                                    <strong>Platform:</strong> {{game.platform.all|join:", " }}
-                                </li>
+                                <li><strong>Description:</strong> {{game.description}}</li>
+                                <li><strong>Genre:</strong> {{game.genre.all|join:", " }}</li>
+                                <li><strong>Developer:</strong> {{game.developer}}</li>
+                                <li><strong>Time to Beat</strong> {{game.time_to_beat}}</li>
+                                <li><strong>Platform:</strong> {{game.platform.all|join:", " }}</li>
                             </ul>
                         </div>
                     </div>
