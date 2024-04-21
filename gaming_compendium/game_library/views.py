@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from game_library.models import Game, Genre, Developer, Platform
+from django.db.models import F
 
 # Create your views here.
 
@@ -17,6 +18,10 @@ def index(request):
     selected_genre = request.GET.get("genre")
     selected_developer = request.GET.get("developer")
     selected_platform = request.GET.get("platform")
+    selected_player = request.GET.get("players")
+    minimum_rating = request.GET.get("min_rating")
+    completed = request.GET.get("completed")
+    incomplete = request.GET.get("incomplete")
 
     if  is_valid_query_param(title_contains_search):
         game_list = game_list.filter(title__icontains = title_contains_search)
@@ -29,6 +34,18 @@ def index(request):
 
     if is_valid_query_param(selected_platform) and selected_platform != 'Choose...':
         game_list = game_list.filter(platform__name = selected_platform)
+
+    if is_valid_query_param(selected_player) and selected_player != 'Choose...':
+        game_list = game_list.filter(player__iexact = selected_player)
+
+    if is_valid_query_param(minimum_rating):
+        game_list = game_list.filter(rating__gte = minimum_rating)
+
+    if completed == 'on':
+        game_list = game_list.filter(is_complete = True)
+
+    elif incomplete == 'on':
+        game_list = game_list.filter(is_complete = False)
 
     context = {"game_list": game_list, 
                "genre_list": genre_list, 
