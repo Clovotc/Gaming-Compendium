@@ -6,7 +6,7 @@
 {% comment %} Sidebar {% endcomment %}
 <div class="container-fluid">
     <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" id="sidebar">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <span class="fs-5 d-none d-sm-inline">Filters</span>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
@@ -14,7 +14,7 @@
                         <hr/>
                         <div class="form-group col-md-4">
                             <label for="genre">Genre:</label>
-                            <select id="genre" class="form-control" name="genre" style="width: 150px;">
+                            <select id="genre" class="form-control" name="genre">
                               <option selected>Choose...</option>
                               {% for genre in genre_list %}
                               <option value="{{ genre }}">{{ genre }}</option>
@@ -24,7 +24,7 @@
                         <hr/>
                         <div class="form-group col-md-4">
                             <label for="developer">Developer:</label>
-                            <select id="developer" class="form-control" name="developer" style="width: 150px;">
+                            <select id="developer" class="form-control" name="developer">
                               <option selected>Choose...</option>
                               {% for developer in developer_list %}
                               <option value="{{ developer }}">{{ developer }}</option>
@@ -34,7 +34,7 @@
                         <hr/>
                         <div class="form-group col-md-4">
                             <label for="platform">Platform:</label>
-                            <select id="platform" class="form-control" name="platform" style="width: 150px;">
+                            <select id="platform" class="form-control" name="platform">
                               <option selected>Choose...</option>
                               {% for platform in platform_list %}
                               <option value="{{ platform }}">{{ platform }}</option>
@@ -44,7 +44,7 @@
                         <hr/>
                         <div class="form-group col-md-4">
                             <label for="players">Players:</label>
-                            <select id="players" class="form-control" name="players" style="width: 150px;">
+                            <select id="players" class="form-control" name="players">
                               <option selected>Choose...</option>
                               <option value="Singleplayer">Singleplayer</option>
                               <option value="Multiplayer">Multiplayer</option>
@@ -54,7 +54,7 @@
                         <hr/>
                         <div class="form-group col-md-2 col-lg-2">
                             <label for="view_rating_min">Minimum Rating</label>
-                            <input type="decimal" min=0 class="form-control" id="view_rating_min" placeholder="0" name="min_rating" style="width: 150px;">
+                            <input type="decimal" min=0 class="form-control" id="view_rating_min" placeholder="0" name="min_rating">
                         </div>
                         <hr/>
                         <div class="form-group">
@@ -70,16 +70,16 @@
                             </div>
                           </div>
                         <hr/>
-                        <button type="submit" class="btn btn-primary">Apply Filters</button>
+                        <button type="submit" class="btn btn-info">Apply Filters</button>
                     </form>
                 </ul>
             </div>
         </div>
-        <div class="col py-3">
+        <div class="col py-3" id="game_library">
             {% comment %} Game List Display {% endcomment %}
             {% for game in game_list %}
             <div class="accordion">
-                <div class="accordion-item">
+                <div class="accordion-item bg-warning">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse{{ forloop.counter }}" aria-expanded="true" aria-controls="panelsStayOpen-collapse{{ forloop.counter }}">
                         {{game.title}} | Rating: {{game.rating}} | Singleplayer or Multiplayer: {{game.player}} | Completed: {{game.is_complete}}
@@ -88,11 +88,11 @@
                     <div id="panelsStayOpen-collapse{{ forloop.counter }}" class="accordion-collapse collapse">
                         <div class="accordion-body">
                             <ul>
-                                <li><strong>Description:</strong> {{game.description}}</li>
-                                <li><strong>Genre:</strong> {{game.genre.all|join:", " }}</li>
-                                <li><strong>Developer:</strong> {{game.developer}}</li>
-                                <li><strong>Time to Beat</strong> {{game.time_to_beat}}</li>
-                                <li><strong>Platform:</strong> {{game.platform.all|join:", " }}</li>
+                                <li id="details"><strong>Description:</strong> {{game.description}}</li>
+                                <li id="details"><strong>Genre:</strong> {{game.genre.all|join:", " }}</li>
+                                <li id="details"><strong>Developer:</strong> {{game.developer}}</li>
+                                <li id="details"><strong>Time to Beat</strong> {{game.time_to_beat}}</li>
+                                <li id="details"><strong>Platform:</strong> {{game.platform.all|join:", " }}</li>
                             </ul>
                         </div>
                     </div>

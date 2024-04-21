@@ -1,0 +1,58 @@
+/* Base Style */
+.bg-light
+{
+    background-color: #042326 !important;
+    color: white;
+}
+
+#navbar_item
+{
+    color: white;
+}
+
+.btn-info
+{
+    background-color: #0FC2C0 !important;
+    color: #042326 !important;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Index Style */
+body
+{
+    background-color: #026873; 
+}
+
+#genre, #developer, #platform, #players, #view_rating_min
+{
+    width: 150px;
+}
+
+#sidebar
+{
+    background-color: #023535;
+    border-radius: 15px;
+    margin: 10px;
+    height: auto;
+    width: auto;
+}
+
+.bg-warning
+{
+    background-color: #0E7C7B !important;
+}
+
+#details
+{
+    color: #042326;
+}
+
+.accordion 
+{
+    --bs-accordion-btn-bg: #023535;
+    --bs-accordion-btn-color: white;
+    --bs-accordion-active-bg: #023535;
+    --bs-accordion-active-color: white;
+    --bs-accordion-btn-focus-box-shadow: none;
+}
