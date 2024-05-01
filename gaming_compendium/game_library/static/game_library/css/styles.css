@@ -16,6 +16,17 @@
     color: #042326 !important;
 }
 
+footer
+{
+    margin: 10px;
+    color: white;
+}
+
+.base_link
+{
+    color: white;
+}
+
 /* -------------------------------------------------------------------------------------------------------------------------------------- */
 
 /* Index Style */
@@ -40,12 +51,13 @@ body
 
 .bg-warning
 {
-    background-color: #0E7C7B !important;
+    background-color: #034E4E !important;
 }
 
-#details
+.details
 {
-    color: #042326;
+    color: white;
+    margin-bottom: 5px;
 }
 
 .accordion 
@@ -55,4 +67,10 @@ body
     --bs-accordion-active-bg: #023535;
     --bs-accordion-active-color: white;
     --bs-accordion-btn-focus-box-shadow: none;
+    --bs-accordion-border-color: none;
+}
+
+.accordion-item
+{
+    margin-bottom: 5px;
 }

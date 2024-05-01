@@ -82,17 +82,18 @@
                 <div class="accordion-item bg-warning">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse{{ forloop.counter }}" aria-expanded="true" aria-controls="panelsStayOpen-collapse{{ forloop.counter }}">
-                        {{game.title}} | Rating: {{game.rating}} | Singleplayer or Multiplayer: {{game.player}} | Completed: {{game.is_complete}}
+                        {{game.title}} | Rating: {{game.rating}} | Completed: {{game.is_complete}}
                         </button>
                     </h2>
                     <div id="panelsStayOpen-collapse{{ forloop.counter }}" class="accordion-collapse collapse">
                         <div class="accordion-body">
                             <ul>
-                                <li id="details"><strong>Description:</strong> {{game.description}}</li>
-                                <li id="details"><strong>Genre:</strong> {{game.genre.all|join:", " }}</li>
-                                <li id="details"><strong>Developer:</strong> {{game.developer}}</li>
-                                <li id="details"><strong>Time to Beat</strong> {{game.time_to_beat}}</li>
-                                <li id="details"><strong>Platform:</strong> {{game.platform.all|join:", " }}</li>
+                                <li class="details"><strong>Description:</strong> {{game.description}}</li>
+                                <li class="details"><strong>Genre:</strong> {{game.genre.all|join:", " }}</li>
+                                <li class="details"><strong>Developer:</strong> {{game.developer}}</li>
+                                <li class="details"><strong>Time to Beat:</strong> {{game.time_to_beat}}</li>
+                                <li class="details"><strong>Platform:</strong> {{game.platform.all|join:", " }}</li>
+                                <li class="details"><strong>Singleplayer or Multiplayer:</strong> {{game.player}}</li>
                             </ul>
                         </div>
                     </div>
