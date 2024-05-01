@@ -51,6 +51,7 @@ class Game(models.Model):
     player = models.CharField(max_length = 20, choices = Players.choices, default = Players.single)
     is_complete = models.BooleanField()
     time_to_beat = models.TextField()
+    number = models.PositiveIntegerField(null = True, unique = True)
 
     def __str__(self):
         return self.title
