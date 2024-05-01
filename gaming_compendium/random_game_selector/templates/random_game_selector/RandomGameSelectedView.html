@@ -1,0 +1,55 @@
+{% extends "game_library/base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% comment %} Sidebar {% endcomment %}
+<style>
+    .container-img {
+        height: 720px;
+        position: relative;
+    }
+
+    .container {
+        height: 100px;
+        position: relative;
+    }
+
+    .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .text {
+        background-color: #042326;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 24px;
+    }
+
+    .img {
+        background-image: url("/static/random_game_selector/images/Dark Souls 2.jpg");
+        height: 720px;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+</style>
+<div class="container">
+    <div class="center">
+        <button class="text">Dark Souls 2</button>
+    </div>
+</div>
+<div class="container-img">
+    <div class="center">
+        <img src="/static/random_game_selector/images/Dark Souls 2.jpg" height="720" width="1280">
+    </div>
+</div>
+{% endblock %}
