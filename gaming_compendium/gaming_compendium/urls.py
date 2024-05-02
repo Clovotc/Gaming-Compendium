@@ -26,5 +26,5 @@ urlpatterns = [
     path('random/', include('random_game_selector.urls')),
     path('admin/', admin.site.urls),
     path('login/', include('login_controls.urls')),
-    path('login/', include('django.contrib.auth.urls'))
+    # path('login/', include('django.contrib.auth.urls'))
 ]
