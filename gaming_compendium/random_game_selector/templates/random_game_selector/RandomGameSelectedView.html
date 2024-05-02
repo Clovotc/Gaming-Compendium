@@ -4,46 +4,23 @@
 {% block content %}
 
 {% comment %} Sidebar {% endcomment %}
-<style>
-    .container-img {
-        height: 720px;
-        position: relative;
-    }
+<link rel="stylesheet" href="{% static 'random_game_selector/css/styles.css' %}" />
 
-    .container {
-        height: 100px;
-        position: relative;
-    }
-
-    .center {
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-    }
-
-    .text {
-        background-color: #042326;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 24px;
-    }
-
-</style>
 <div class="container">
     <div class="center">
-        <button class="text">Dark Souls 2</button>
+        <button class="text">{{ formatted_random_game_string }}</button>
     </div>
 </div>
 <div class="container-img">
     <div class="center">
-        <img src="/static/random_game_selector/images/Dark Souls 2.jpg" height="720" width="1280">
+        <img src={{ random_game_image_url }} height="720" width="1280">
+    </div>
+</div>
+<div class="container">
+    <div class="center">
+        <form class="d-flex" role="search">
+            <button class="btn btn-info" type="submit">Refresh</button>
+          </form>
     </div>
 </div>
 {% endblock %}

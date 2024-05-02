@@ -4,32 +4,7 @@
 {% block content %}
 
 {% comment %} Sidebar {% endcomment %}
-<style>
-    .container {
-        height: 200px;
-        position: relative;
-    }
-
-    .center {
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-    }
-
-    .button {
-        background-color: #042326;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 24px;
-    }
-</style>
+<link rel="stylesheet" href="{% static 'random_game_selector/css/styles.css' %}" />
 
 <div class="container">
     <div class="center">

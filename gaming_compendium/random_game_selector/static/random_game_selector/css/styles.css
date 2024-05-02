@@ -1,1 +1,40 @@
- 
+.container-img {
+    height: 720px;
+    position: relative;
+}
+
+.container {
+    height: 100px;
+    position: relative;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.text {
+    background-color: #042326;
+    border: none;
+    color: #0FC2C0;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+}
+
+.button {
+    background-color: #042326;
+    border: none;
+    color: #0FC2C0;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+}
