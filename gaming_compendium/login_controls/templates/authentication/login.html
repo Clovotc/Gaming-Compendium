@@ -1,5 +1,5 @@
 {% extends "game_library/base.html" %} {% load static %} {% block content %} 
-{%comment %} Login {% endcomment %}
+{% comment %} Login {% endcomment %}
 <h1>Login</h1>
 <br /><br />
 
@@ -12,7 +12,7 @@
       class="form-control"
       name="username"
       aria-describedby="emailHelp"
-      placeholder="Enter username"
+      placeholder="Enter Username"
     />
   </div>
   <div class="form-group">
@@ -26,10 +26,10 @@
   </div>
   <div class="form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    <label class="form-check-label" for="exampleCheck1">Remember Me</label>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-  <input type="submit" value="Submit" class="btn btn-secondary" />
+  <button type="submit" class="btn btn-info">Submit</button>
+  <input type="submit" value="Reset" class="btn btn-secondary" />
 </form>
 
 {% endblock %}
