@@ -18,10 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from game_library import views
 from random_game_selector import views
+from login_controls import views
 from django.conf.urls import include
 
 urlpatterns = [
     path('', include('game_library.urls')),
     path('random/', include('random_game_selector.urls')),
     path('admin/', admin.site.urls),
+    path('login/', include('login_controls.urls')),
+    # path('login/', include('django.contrib.auth.urls'))
 ]
