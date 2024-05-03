@@ -16,6 +16,7 @@
     />
     <link rel="stylesheet" href="{% static 'game_library/css/styles.css' %}" />
   </head>
+
   <body>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -44,11 +45,19 @@
                 >Random Game</a
               >
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'login' %}" id="navbar_item"
-                >Login</a
-              >
-            </li>
+            {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}" id="navbar_item"
+                  >Logout</a
+                >
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}" id="navbar_item"
+                  >Login</a
+                >
+              </li>
+            {% endif %}
           </ul>
           <form class="d-flex" role="search" id="search_button">
             <input

@@ -1,7 +1,23 @@
+
 {% extends "game_library/base.html" %} {% load static %} {% block content %} 
 {% comment %} Login {% endcomment %}
+
+<div class="container">
+  {% if messages %}
+    {% for message in messages %}     
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{ message }}</strong>          
+        </button>
+      </div>
+    {% endfor %}
+  {% endif %}
+
+  {% block alert %}
+  {% endblock %}
+</div>
+
 <h1>Login</h1>
-<br /><br />
+<br />
 
 <form action="" method="POST">
   {% csrf_token %}

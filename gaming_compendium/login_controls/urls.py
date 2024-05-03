@@ -20,4 +20,5 @@ from login_controls import views
 
 urlpatterns = [
     path('', views.login_user, name = 'login'),
+    path('', views.logout_user, name = 'logout'),
 ]
