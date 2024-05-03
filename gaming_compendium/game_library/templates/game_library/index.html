@@ -1,6 +1,19 @@
 {% extends "game_library/base.html" %}
 {% load static %}
 
+{% block search %}
+    <form class="d-flex" role="search" id="search_button">
+        <input
+            class="form-control me-2"
+            type="search"
+            name="title_contains"
+            placeholder="Search Game Title"
+            aria-label="Search"
+        />
+        <button class="btn btn-info" type="submit">Search</button>
+    </form>
+{% endblock %}
+
 {% block content %}
 
 {% comment %} Sidebar {% endcomment %}
@@ -53,9 +66,13 @@
                         </div>
                         <hr/>
                         <div class="form-group col-md-2 col-lg-2">
-                            <label for="view_rating_min">Minimum Rating</label>
+                            <label for="view_rating_min">Minimum Rating:</label>
                             <input type="decimal" min=0 class="form-control" id="view_rating_min" placeholder="0" name="min_rating">
                         </div>
+
+                        {% comment %}
+                        Cant figure out how to make it user specific
+
                         <hr/>
                         <div class="form-group">
                             <div class="form-check">
@@ -68,7 +85,9 @@
                               <input class="form-check-input" type="checkbox" id="incomplete" name="incomplete">
                               <label class="form-check-label" for="incomplete">Incomplete</label>
                             </div>
-                          </div>
+                        </div> 
+                        {% endcomment %}
+
                         <hr/>
                         <button type="submit" class="btn btn-info">Apply Filters</button>
                     </form>
@@ -82,7 +101,7 @@
                 <div class="accordion-item bg-warning">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse{{ forloop.counter }}" aria-expanded="true" aria-controls="panelsStayOpen-collapse{{ forloop.counter }}">
-                        {{game.title}} | Rating: {{game.rating}} | Completed: {{game.is_complete}}
+                        {{game.title}} | Rating: {{game.rating}}
                         </button>
                     </h2>
                     <div id="panelsStayOpen-collapse{{ forloop.counter }}" class="accordion-collapse collapse">

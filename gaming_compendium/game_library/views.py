@@ -20,8 +20,10 @@ def index(request):
     selected_platform = request.GET.get("platform")
     selected_player = request.GET.get("players")
     minimum_rating = request.GET.get("min_rating")
-    completed = request.GET.get("completed")
-    incomplete = request.GET.get("incomplete")
+
+    # Dont know how to make it user specific
+    # completed = request.GET.get("completed")
+    # incomplete = request.GET.get("incomplete")
 
     if  is_valid_query_param(title_contains_search):
         game_list = game_list.filter(title__icontains = title_contains_search)
@@ -41,11 +43,12 @@ def index(request):
     if is_valid_query_param(minimum_rating):
         game_list = game_list.filter(rating__gte = minimum_rating)
 
-    if completed == 'on':
-        game_list = game_list.filter(is_complete = True)
+    # Dont know how to make it user specific
+    # if completed == 'on':
+    #     game_list = game_list.filter(is_complete = True)
 
-    elif incomplete == 'on':
-        game_list = game_list.filter(is_complete = False)
+    # elif incomplete == 'on':
+    #     game_list = game_list.filter(is_complete = False)
 
     context = {"game_list": game_list, 
                "genre_list": genre_list, 

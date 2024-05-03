@@ -65,16 +65,8 @@
               </li>
             {% endif %}
           </ul>
-          <form class="d-flex" role="search" id="search_button">
-            <input
-              class="form-control me-2"
-              type="search"
-              name="title_contains"
-              placeholder="Search Game Title"
-              aria-label="Search"
-            />
-            <button class="btn btn-info" type="submit">Search</button>
-          </form>
+          {% block search %}
+          {% endblock %}
         </div>
       </div>
     </nav>
